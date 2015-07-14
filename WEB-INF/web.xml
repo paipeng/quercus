@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE web-app
-    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
-    "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
 
-<web-app>
+
+<web-app
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+    	version="3.1">
   <description>Caucho Technology's PHP Implementation</description>
+
+
+  <filter>
+      <filter-name>UrlRewriteFilter</filter-name>
+      <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+  </filter>
+  <filter-mapping>
+      <filter-name>UrlRewriteFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+      <dispatcher>REQUEST</dispatcher>
+      <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
 
   <servlet>
     <servlet-name>Quercus Servlet</servlet-name>
@@ -37,7 +51,7 @@
       <param-value>WEB-INF/php.ini</param-value>
     </init-param>
     -->
-    
+
     <!--
       Location of the license to enable php to java compilation.
     -->
@@ -47,12 +61,14 @@
     </init-param>
   </servlet>
 
+
   <servlet-mapping>
     <servlet-name>Quercus Servlet</servlet-name>
     <url-pattern>*.php</url-pattern>
   </servlet-mapping>
 
   <welcome-file-list>
-    <welcome-file>index.php</welcome-file>
+    <welcome-file>phpinfo.php</welcome-file>
   </welcome-file-list>
+
 </web-app>
