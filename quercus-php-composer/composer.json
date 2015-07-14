@@ -1,0 +1,15 @@
+{
+    "name": "paipeng/quercus-php-composer",
+    "description": "Testing PHP composer with Quercus JVM",
+    "require": {
+        "paipeng/hello-world": "dev-master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pai Peng",
+            "email": "sipaipv6@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
