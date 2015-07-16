@@ -9,7 +9,6 @@
 
 -->
 <urlrewrite>
-
     <rule>
         <note>
             The rule means that requests to /test/status/ will be redirected to /rewrite-status
@@ -18,7 +17,6 @@
         <from>/test/status/</from>
         <to type="redirect">%{context-path}/rewrite-status</to>
     </rule>
-
 
     <outbound-rule>
         <note>
@@ -33,6 +31,10 @@
         <to>/test/status/</to>
     </outbound-rule>
 
+    <rule>
+        <from>/test-laravel/(.*)</from>
+        <to type="redirect">/test-laravel/app/public/index.php?$1</to>
+    </rule>
 
     <!--
 
